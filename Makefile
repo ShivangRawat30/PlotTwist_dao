@@ -42,4 +42,7 @@ ifeq ($(findstring --network sepolia,$(ARGS)),--network sepolia)
 endif
 
 deploy:
-	@forge script script/DeployDSC.s.sol:DeployDSC $(NETWORK_ARGS)
+	@forge script script/DeployDAO.s.sol:DeployDAO $(NETWORK_ARGS)
+
+deploy-anvil:
+	@forge script script/DeployDAO.s.sol:DeployDAO --rpc-url http://localhost:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --broadcast
